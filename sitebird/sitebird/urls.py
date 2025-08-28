@@ -24,3 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + debug_toolbar_urls()
+
+
+admin.site.site_header = 'Страница для администратора'
