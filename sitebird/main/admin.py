@@ -9,6 +9,18 @@ class BirdAdmin(admin.ModelAdmin):
     ordering = ['id']
     list_editable = ['is_published']
     list_per_page = 10
+    actions = ['blok_published', 'blok_unpublished']
+
+    @admin.action(description='Сделать записи опубликованными')
+    def blok_published(self, request, queryset):
+        count = queryset.update(is_published=True)
+        self.message_user(request, f'Опубликовано {count} записей')
+
+    @admin.action(description='Снять записи с публикации')
+    def blok_unpublished(self, request, queryset):
+        count = queryset.update(is_published=False)
+        self.message_user(request, f'Снято с публикации {count} записей')
+
 
 
 @admin.register(Categories)
