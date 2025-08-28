@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<ul class="list-bird">
+    <h2 class="h-text">Самые встречающиеся птицы России:</h2>
+    {% for post in posts %}
+        <li><h3 class="h-text"> {{ post.title }}</h3>
+        {{post.content|truncatewords:30}}
+            <div class="post-text"></div>
+            <p class="link-read-post"><a href = "{{ post.get_absolute_url }}">Читать пост</a></p><hr>
+        </li>
+    {%endfor %}
+</ul>
+{% endblock %}
