@@ -10,6 +10,8 @@ class BirdAdmin(admin.ModelAdmin):
     list_editable = ['is_published']
     list_per_page = 10
     actions = ['blok_published', 'blok_unpublished']
+    search_fields = ['title__startswith']
+    list_filter = ['category__name', 'is_published', 'in_the_red_book']
 
     @admin.action(description='Сделать записи опубликованными')
     def blok_published(self, request, queryset):
