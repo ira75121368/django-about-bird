@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 
-from main.forms import AddPostForm
 from main.models import Bird, Categories
 
 
@@ -49,18 +48,3 @@ def show_category(request, cat_slug):
         'cat_selected': category.pk,
     }
     return render(request, 'main/blog.html', data)
-
-
-def add_post(request):
-    if request.method == 'POST':
-        form = AddPostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('add')
-    else:
-        form = AddPostForm()
-    data = {
-        'title': 'Добавление нового поста',
-        'form': form,
-    }
-    return render(request, 'main/add.html', data)

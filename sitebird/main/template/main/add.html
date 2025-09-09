@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load main_tags %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {% for f in form %}
+        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label> {{ f }}</p>
+        <div class="form-errors">{{ f.errors }}</div>
+    {% endfor %}
+    <p><button type="submit">Отправить</button> </p>
+</form>
+{% endblock %}
