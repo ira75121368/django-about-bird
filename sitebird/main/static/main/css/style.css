@@ -82,3 +82,11 @@ ul.categories-blog li a:hover {
   font-weight: 450;
 }
 
+.img-on-post {
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  object-fit: contain;
+}
+

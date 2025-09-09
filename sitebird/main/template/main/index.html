@@ -7,6 +7,9 @@
 <ul class="list-bird">
     <h2 class="h-text">Самые встречающиеся птицы России:</h2>
     {% for post in posts %}
+        {% if p.photo %}
+            <p><img class="img-left thumb" src="{{p.photo.url}}"></p>
+        {% endif %}
         <li><h3 class="h-text"> {{ post.title }}</h3>
         {{post.content|truncatewords:30}}
             <div class="post-text"></div>

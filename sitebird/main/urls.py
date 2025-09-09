@@ -1,4 +1,6 @@
+from django.conf.urls.static import static
 from django.urls import path
+from sitebird import settings
 from . import views
 
 
@@ -10,3 +12,6 @@ urlpatterns = [
     path('category/<slug:cat_slug>/', views.show_category, name='category'),
     path('add/', views.add_post, name='add'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

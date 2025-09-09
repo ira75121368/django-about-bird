@@ -6,7 +6,7 @@
 <h1 class="h-text"> {{ title }}</h1>
 
 {% if post.photo %}
-<p><img src="{{post.photo.url}}" alt="Фото"></p>
+<p><img class="img-on-post" src="{{post.photo.url}}" alt="Фото"></p>
 {% endif %}
 
 {{post.content|linebreaks}}
